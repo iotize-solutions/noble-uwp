@@ -12,7 +12,7 @@ if (os.platform() === 'win32') {
 		throw new Error("Noble UWP bindings require Windows >= 10.0.15063.");
 	}
 
-	const Noble = require('noble/lib/noble');
+	const Noble = require('@abandonware/noble/lib/noble');
 	const uwpBindings = require('./lib/bindings.js');
 	const uwpAddition = require('./lib/uwpAddition.js');
 
@@ -22,5 +22,5 @@ if (os.platform() === 'win32') {
 
 	module.exports = nobleInstance;
 } else {
-	module.exports = require('noble');
+	module.exports = require('@abandonware/noble');
 }
