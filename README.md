@@ -9,15 +9,19 @@ This project is an implementation of bindings for `noble` using that newly avail
 functionality in Windows 10.
 
 ## System Requirements
- * Node.js v6 or later.
- * Windows 10 build 10.0.15063 or later
- * Windows 10 SDK build 10.0.15063
+
+-   Node.js v6 or later.
+-   Windows 10 build 10.0.15063 or later
+-   Windows 10 SDK build 10.0.15063
 
 ## Usage
+
 Simply require `noble-uwp` instead of `noble`:
+
 ```javascript
 const noble = require('noble-uwp');
 ```
+
 Then [use it in the same way as the regular `noble`](https://github.com/sandeepmistry/noble/blob/master/README.md).
 On non-Windows platforms, the benavior is unchanged from `noble`, while on Windows the UWP bindings are used instead
 of `noble`'s Bluetooth HCI bindings.
@@ -34,6 +38,7 @@ npm rebuild --runtime=electron --target=1.7.1 --arch=x64 --rebuild --disturl=htt
 adjust the target version to the version of electron you are running (1.7.1 works for electron 1.7.0 and up)
 
 ## Testing
+
 So far, testing has been done with a TI SensorTag.
 
 First, make sure you have the
@@ -55,21 +60,25 @@ node test.js
 ```
 
 Notes:
- * The NodeRT adapter libraries may take a few minutes to build with `node-gyp`; please be patient.
- * The above string replacement in the `noble-device` source file is necessary to get it to use
-   the `noble-uwp` package instead of regular `noble`.
- * The `DEBUG` environment variable setting is optional; set it if you want to see verbose console
-   output from `noble-uwp`.
+
+-   The NodeRT adapter libraries may take a few minutes to build with `node-gyp`; please be patient.
+-   The above string replacement in the `noble-device` source file is necessary to get it to use
+    the `noble-uwp` package instead of regular `noble`.
+-   The `DEBUG` environment variable setting is optional; set it if you want to see verbose console
+    output from `noble-uwp`.
 
 ## Implementation Status
+
 The following functionality is working:
- * Device discovery
- * Device services discovery
- * Service included services discovery
- * Service characteristics discovery
- * Characteristic reading and writing
- * Characteristic change notifications
- * Descriptors (discovering, reading, writing)
+
+-   Device discovery
+-   Device services discovery
+-   Service included services discovery
+-   Service characteristics discovery
+-   Characteristic reading and writing
+-   Characteristic change notifications
+-   Descriptors (discovering, reading, writing)
 
 The following functionality is not yet implemented:
- * Broadcast
+
+-   Broadcast

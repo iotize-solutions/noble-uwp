@@ -12,19 +12,22 @@ var fs = require('fs');
 var npmScope = '';
 
 try {
-  // this little trick makes node.js Tools for VS load intellisense for the module
-  if (fs.existsSync(path.join(__dirname, 'NodeRT_Windows_Devices_Radios.d.js)'))) {
-    module.exports = require('./NodeRT_Windows_Devices_Radios.d.js');
-  }
-  module.exports = require(require('node-pre-gyp').find(
-      path.resolve(path.join(__dirname,'../package.json'))));
-}
-catch(e) {
-  throw e;
+    // this little trick makes node.js Tools for VS load intellisense for the module
+    if (
+        fs.existsSync(
+            path.join(__dirname, 'NodeRT_Windows_Devices_Radios.d.js)')
+        )
+    ) {
+        module.exports = require('./NodeRT_Windows_Devices_Radios.d.js');
+    }
+    module.exports = require(require('node-pre-gyp').find(
+        path.resolve(path.join(__dirname, '../package.json'))
+    ));
+} catch (e) {
+    throw e;
 }
 
 var externalReferencedNamespaces = [];
-
 
 if (externalReferencedNamespaces.length > 0) {
     var namespaceRegistry = global.__winRtNamespaces__;
